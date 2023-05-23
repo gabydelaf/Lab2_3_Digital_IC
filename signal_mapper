@@ -7,11 +7,11 @@ Entity signal_mapper is
 End signal_mapper;
 
 Architecture of signal_mapper Is
-  a <=sseg_out(0);
-  b <=sseg_out(1);
-  c <=sseg_out(2);
-  d <=sseg_out(3);
-  e <=sseg_out(4);
-  f <=sseg_out(5);
-  g <=sseg_out(6);
+  a <= sseg_out(0);
+  b <= sseg_out(1);
+  c <= sseg_out(2);
+  d <= sseg_out(3);
+  e <= sseg_out(4);
+  f <= sseg_out(5);
+  g <= sseg_out(6);
 End Architecture signal_mapper;
