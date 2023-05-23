@@ -9,7 +9,7 @@ Architecture behavior of mux_tb is
     Port (in0, in1, in2 : In std_logic_vector(3 downto 0);
           nsel0, nsel1, nsel2: In std_logic;
           out1 : Out std_logic_vector(3 downto 0));
-  End component; 
+  End Component; 
   
 signal in0, in1, in2: std_logic_vector (3 downto 0) := (others => '0');
 signal nsel0, nsel1, nsel2: In std_logic;
