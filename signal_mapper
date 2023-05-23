@@ -2,8 +2,8 @@ Library IEEE;
 use IEEE.std_logic_1164.all;
 
 Entity signal_mapper is 
-  Port (a, b, c, d, e, f, g : In std_logic;
-        sseg_out : Out std_logic(6 downto 0));
+  Port (sseg_out : In std_logic(6 downto 0);
+        a, b, c, d, e, f, g : Out std_logic);
 End signal_mapper;
 
 Architecture of signal_mapper Is
