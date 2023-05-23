@@ -7,7 +7,7 @@ Entity sseg_demux is
         einer_out : Out std_logic(6 downto 0)
         zehner_out : Out std_logic(6 downto 0)
         hundert_out : Out std_logic(6 downto 0));
-End ssseg_demux;
+End sseg_demux;
 
 Architecture of sseg_demux Is
 Begin
