@@ -28,6 +28,6 @@ Begin
   end Process;
 pulsout <= internal;
 
-End Architecture sseg_pulsgen;
+End Architecture behave;
 
 
