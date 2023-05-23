@@ -1,5 +1,5 @@
 Library IEEE;
-use IEEE,std_logic_1164.all;
+use IEEE.std_logic_1164.all;
 
 Entity signal_mapper is 
   Port (a, b, c, d, e, f, g : In std_logic;
