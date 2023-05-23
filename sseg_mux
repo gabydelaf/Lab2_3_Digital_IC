@@ -7,7 +7,7 @@ Entity sseg_mux is
         out1 : Out std_logic(3 downto 0));
 End ssseg_mux;
 
-Architecture of sseg_mux Is
+Architecture of seg_mux Is
 Begin
   mux: Process(in0, in1, in2, nsel0, nsel1, nsel2) is
   Begin
