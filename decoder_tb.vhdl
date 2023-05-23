@@ -16,7 +16,7 @@ signal nsel_e, nsel_z, nsel_h : Out std_logic);
 
 Begin 
 -- Instantiate the Unit Under Test (UUT)
-uut: sseg Port Map (
+uut: decoder Port Map (
       in0 => in0, 
       in1 => in1, 
       nsel_e => nsel_e,
