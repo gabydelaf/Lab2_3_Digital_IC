@@ -21,7 +21,7 @@ uut: sseg Port Map (
       in1 => in1, 
       nsel_e => nsel_e,
       nsel_z => nsel_z,
-      nsel_h => nsel_h,
+      nsel_h => nsel_h
       );
       
 stim_proc: Process 
