@@ -5,7 +5,7 @@ Entity sseg_mux is
   Port (in0, in1, in2 : In std_logic_vector(3 downto 0);
         nsel0, nsel1, nsel2: In std_logic;
         out1 : Out std_logic_vector(3 downto 0));
-End ssseg_mux;
+End sseg_mux;
 
 Architecture of seg_mux Is
 Begin
