@@ -1,7 +1,5 @@
---/sseg/ (with/select)
-
 Library IEEE;
-use IEEE,std_logic_1164.all;
+use IEEE.std_logic_1164.all;
 
 Entity sseg Is
 Port ( a : In std_logic_vector (3 downto 0); 
