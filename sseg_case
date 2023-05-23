@@ -9,19 +9,19 @@ Port ( a : In std_logic_vector (3 downto 0);
 -- For cathod configuration
 Architecture sseg_case of sseg Is.
 Begin 
-  case sseg_out is 
-  when "0000" => "0111111"; --0
-  when "0001" => "0000110"; --1        
-  when "0010" => "1011011"; --2
-  when "0011" => "1001111"; --3
-  when "0100" => "1100110"; --4
-  when "0101" => "1101101"; --5
-  when "0110" => "1111101"; --6
-  when "0111" => "0000111"; --7
-  when "1000" => "1111111"; --8
-  when "1001" => "1001111"; --9
+  case a is 
+  when "0000" => sseg_out <= "0111111"; --0
+  when "0001" => sseg_out <= "0000110"; --1        
+  when "0010" => sseg_out <= "1011011"; --2
+  when "0011" => sseg_out <= "1001111"; --3
+  when "0100" => sseg_out <= "1100110"; --4
+  when "0101" => sseg_out <= "1101101"; --5
+  when "0110" => sseg_out <= "1111101"; --6
+  when "0111" => sseg_out <= "0000111"; --7
+  when "1000" => sseg_out <= "1111111"; --8
+  when "1001" => sseg_out <= "1001111"; --9
 
-  when others => "0000000";
+  when others => sseg_out <= "0000000";
 end case;
 
 End Architecture sseg_case;
