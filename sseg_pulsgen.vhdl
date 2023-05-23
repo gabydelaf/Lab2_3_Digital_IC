@@ -8,7 +8,7 @@ Entity sseg_pulsgen is
 End sseg_pulsgen;
 
 Architecture behave of sseg_pulsgen Is
-  signal counter : integer range 0 to ___ := 0;
+  signal counter : integer range 0 to 999999 := 0;
   signal internal : std_logic := 0;
   
 Begin
@@ -18,7 +18,7 @@ Begin
       internal <= '0';
       counter <= 0;
     elseif rising_edge(clk_in) then
-      if (counter = ___) then
+      if (counter = 999999) then
         internal <= Not (internal); 
         counter <= 0;
       else
