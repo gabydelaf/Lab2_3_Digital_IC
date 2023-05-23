@@ -2,11 +2,11 @@ Library IEEE;
 use IEEE,std_logic_1164.all;
 
 Entity sseg_demux is 
-  Port (sseg_in : In std_logic(6 downto 0);
+  Port (sseg_in : In std_logic_vector(6 downto 0);
         nsel0, nsel1, nsel2: In std_logic;
-        einer_out : Out std_logic(6 downto 0)
-        zehner_out : Out std_logic(6 downto 0)
-        hundert_out : Out std_logic(6 downto 0));
+        einer_out : Out std_logic_vector(6 downto 0)
+        zehner_out : Out std_logic_vector(6 downto 0)
+        hundert_out : Out std_logic_vector(6 downto 0));
 End sseg_demux;
 
 Architecture of sseg_demux Is
