@@ -29,13 +29,13 @@ uut: sseg Port Map (
       
 stim_proc: Process 
   Begin
-  in0 <= "0000"; wait for 10ns; 
-  in1 <= "0000"; wait for 10ns; 
-  in2 <= "0000"; wait for 10ns; 
-  nsel0 <= "0000"; wait for 10ns; 
-  nsel1 <= "0000"; wait for 10ns; 
-  nsel2 <= "0000"; wait for 10ns; 
-  out1 <= "0000"; wait for 10ns; 
+  in0 <= "0000"; wait for 200ns; 
+  in1 <= "0000"; wait for 200ns; 
+  in2 <= "0000"; wait for 200ns; 
+  nsel0 <= "0000"; wait for 200ns; 
+  nsel1 <= "0000"; wait for 200ns; 
+  nsel2 <= "0000"; wait for 200ns; 
+  out1 <= "0000"; wait for 200ns; 
   wait;
  End Process;
 
