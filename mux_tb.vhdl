@@ -17,7 +17,7 @@ signal out1 : std_logic_vector (3 down to 0);
 
 Begin 
 -- Instantiate the Unit Under Test (UUT)
-uut: sseg Port Map (
+uut: mux Port Map (
       in0 => in0, 
       in1 => in1, 
       in2 => in2, 
