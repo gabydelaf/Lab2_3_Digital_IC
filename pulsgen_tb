@@ -1,0 +1,33 @@
+Library IEEE;
+use IEEE.std_logic_1164.all;
+
+Entity pulsgen_tb Is
+End pulsgen_tb;
+
+Architecture behavior of pulsgen_tb is
+  Component pulsgen
+    Port (clk_in : In std_logic;
+          nres: In std_logic;
+          pulsout : Out std_logic);
+  End Component; 
+  
+signal clk_in, nres: std_logic  := (others => '0');
+signal pulsout : std_logic;
+
+Begin 
+-- Instantiate the Unit Under Test (UUT)
+uut: pulsgen Port Map (
+      clk_in => clk_in, 
+      nres => nres, 
+      pulsout => pulsout
+      );
+      
+stim_proc: Process 
+  Begin
+  clk_in <= "0000"; wait for 1ms; 
+  nres <= "0000"; wait for 1ms; 
+  pulsout <= "0000"; wait for 1mss; 
+  wait;
+ End Process;
+
+End;
