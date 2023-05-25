@@ -1,37 +1,26 @@
-Library IEEE;
-use IEEE.std_logic_1164.all;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
-Entity decoder_tb Is
-End decoder_tb;
+entity sseg_decoder is
+	Port (in0 : In std_logic;
+        in1: In std_logic;
+        nsel_e, nsel_z, nsel_h : Out std_logic);
+end sseg_decoder;
 
-Architecture behavior of decoder_tb is
-  Component decoder
-    Port (in0 : In std_logic;
-          in1: In std_logic;
-          nsel_e, nsel_z, nsel_h : Out std_logic);
-  End component; 
+architecture Behavioral of sseg_decoder is
 
-signal in0, in1 std_logic := (others => '0');
-signal nsel_e, nsel_z, nsel_h : Out std_logic);
+begin
+	decoder: Process(in0, in1) is
+	Begin
+    nsel_e <= '1';
+    nsel_z <= '1';
+    nsel_h <= '1';
+    
+    If     in0 = '0' And in1 = '0' then nsel_e <= '0';
+    Elsif in0 = '1' And in1 = '0' then nsel_z <= '0';
+    Elsif in0 = '0' And in1 = '1' then nsel_h <= '0';
+    Else Null;
+    End If;
+  end Process decoder;
 
-Begin 
--- Instantiate the Unit Under Test (UUT)
-uut: decoder Port Map (
-      in0 => in0, 
-      in1 => in1, 
-      nsel_e => nsel_e,
-      nsel_z => nsel_z,
-      nsel_h => nsel_h
-      );
-      
-stim_proc: Process 
-  Begin
-  in0 <= "0000"; wait for 100ns; 
-  in1 <= "0000"; wait for 100ns; 
-  nsel_e <= "0000"; wait for 100ns; 
-  nsel_z <= "0000"; wait for 100ns; 
-  nsel_h <= "0000"; wait for 100ns; 
-  wait;
- End Process;
-
-End;
+end Behavioral;
