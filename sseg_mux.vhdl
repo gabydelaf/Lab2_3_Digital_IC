@@ -13,8 +13,8 @@ Begin
   Begin
   
     If     nsel0 = '0' And nsel1 = '1' And nsel2 = '1' then out1 <= in0;
-    Elseif nsel0 = '1' And nsel1 = '0' And nsel2 = '1' then out1 <= in1;
-    Elseif nsel0 = '1' And nsel1 = '1' And nsel2 = '0' then out1 <= in2;
+    Elsif nsel0 = '1' And nsel1 = '0' And nsel2 = '1' then out1 <= in1;
+    Elsif nsel0 = '1' And nsel1 = '1' And nsel2 = '0' then out1 <= in2;
     Else Null;
     End If;
   end Process mux;
