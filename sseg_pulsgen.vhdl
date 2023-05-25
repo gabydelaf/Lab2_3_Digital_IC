@@ -1,5 +1,5 @@
-Library IEEE;
-use IEEE.std_logic_1164.all;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
 Entity sseg_pulsgen is 
   Port (clk_in : In std_logic;
@@ -8,8 +8,8 @@ Entity sseg_pulsgen is
 End sseg_pulsgen;
 
 Architecture behave of sseg_pulsgen Is
-  signal counter : integer range 0 to 999999 := 0;
-  signal internal : std_logic := 0;
+  signal counter : integer range 0 to 49999 := 0;
+  signal internal : std_logic := '0';
   
 Begin
   Process (nres, clk_in)
@@ -17,8 +17,8 @@ Begin
     if(nres = '0') then 
       internal <= '0';
       counter <= 0;
-    elseif rising_edge(clk_in) then
-      if (counter = 999999) then
+    elsif rising_edge(clk_in) then
+      if (counter = 49999) then
         internal <= Not (internal); 
         counter <= 0;
       else
