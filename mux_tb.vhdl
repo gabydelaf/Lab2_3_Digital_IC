@@ -1,42 +1,90 @@
-Library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ 
+ENTITY mux_tb IS
+END mux_tb;
+ 
+ARCHITECTURE behavior OF mux_tb IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT sseg_mux
+    PORT(
+         in0 : IN  std_logic_vector(3 downto 0);
+         in1 : IN  std_logic_vector(3 downto 0);
+         in2 : IN  std_logic_vector(3 downto 0);
+         nsel0 : IN  std_logic;
+         nsel1 : IN  std_logic;
+         nsel2 : IN  std_logic;
+         out1 : OUT  std_logic_vector(3 downto 0)
+        );
+    END COMPONENT;
+    
 
-Entity mux_tb Is
-End mux_tb;
+   --Inputs
+   signal in0 : std_logic_vector(3 downto 0) := (others => '0');
+   signal in1 : std_logic_vector(3 downto 0) := (others => '0');
+   signal in2 : std_logic_vector(3 downto 0) := (others => '0');
+   signal nsel0 : std_logic := '0';
+   signal nsel1 : std_logic := '0';
+   signal nsel2 : std_logic := '0';
 
-Architecture behavior of mux_tb is
-  Component mux
-    Port (in0, in1, in2 : In std_logic_vector(3 downto 0);
-          nsel0, nsel1, nsel2: In std_logic;
-          out1 : Out std_logic_vector(3 downto 0));
-  End Component; 
+ 	--Outputs
+   signal out1 : std_logic_vector(3 downto 0);
   
-signal in0, in1, in2: std_logic_vector (3 downto 0) := (others => '0');
-signal nsel0, nsel1, nsel2: In std_logic;
-signal out1 : std_logic_vector (3 down to 0);
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: sseg_mux PORT MAP (
+          in0 => in0,
+          in1 => in1,
+          in2 => in2,
+          nsel0 => nsel0,
+          nsel1 => nsel1,
+          nsel2 => nsel2,
+          out1 => out1
+        );
 
-Begin 
--- Instantiate the Unit Under Test (UUT)
-uut: mux Port Map (
-      in0 => in0, 
-      in1 => in1, 
-      in2 => in2, 
-      nsel0 => nsel0,
-      nsel1 => nsel1,
-      nsel2 => nsel2,
-      out1 => out1
-      );
-      
-stim_proc: Process 
-  Begin
-  in0 <= "0000"; wait for 200ns; 
-  in1 <= "0000"; wait for 200ns; 
-  in2 <= "0000"; wait for 200ns; 
-  nsel0 <= "0000"; wait for 200ns; 
-  nsel1 <= "0000"; wait for 200ns; 
-  nsel2 <= "0000"; wait for 200ns; 
-  out1 <= "0000"; wait for 200ns; 
-  wait;
- End Process;
+   -- Stimulus process
+   stim_proc: process
+   begin		
+      in0 <= "0000";
+		in1 <= "0000";
+		in2 <= "0000"; wait for 100ns;
+		
+		in0 <= "0001";
+		in1 <= "0010";
+		in2 <= "0100";
+		nsel0 <= '0';
+		nsel1 <= '0';
+		nsel2 <= '0'; wait for 100ns;
+		
+		nsel0 <= '0';
+		nsel1 <= '0';
+		nsel2 <= '1'; wait for 100ns;
+		
+		nsel0 <= '0';
+		nsel1 <= '1';
+		nsel2 <= '0'; wait for 100ns;
+		
+		nsel0 <= '0';
+		nsel1 <= '1';
+		nsel2 <= '1'; wait for 100ns;
+		
+		nsel0 <= '1';
+		nsel1 <= '0';
+		nsel2 <= '0'; wait for 100ns;
+		
+		nsel0 <= '1';
+		nsel1 <= '0';
+		nsel2 <= '1'; wait for 100ns;
+		
+		nsel0 <= '1';
+		nsel1 <= '1';
+		nsel2 <= '0'; wait for 100ns;
 
-End;
+      wait;
+   end process;
+
+END;
