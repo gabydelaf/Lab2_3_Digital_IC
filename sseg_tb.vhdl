@@ -27,6 +27,7 @@ stim_proc: Process
   a <= "0111"; wait for 10ns;
   a <= "1000"; wait for 10ns; 
   a <= "1001"; wait for 10ns;
+  a <= "1010"; wait for 10ns;  
   wait;
  End Process;
 
