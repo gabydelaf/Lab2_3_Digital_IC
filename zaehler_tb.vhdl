@@ -1,39 +1,63 @@
-Library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ 
+ 
+ENTITY tb_sseg_zaehler IS
+END tb_sseg_zaehler;
+ 
+ARCHITECTURE behavior OF tb_sseg_zaehler IS 
+ 
+    -- Component Declaration for the Unit Under Test (UUT)
+ 
+    COMPONENT sseg_zaehler
+    PORT(
+         clk : IN  std_logic;
+         nres : IN  std_logic;
+         Out0 : OUT  std_logic;
+         Out1 : OUT  std_logic
+        );
+    END COMPONENT;
+    
 
-Entity zaehler_tb is 
-End zaehler_tb;
-  
-Architecture behave of zaehler_tb Is  
-  Component zaehler
-    Port (clk, nres : In std_logic;
-          Out0, Out1 : Out std_logic);
-  End Component;
+   --Inputs
+   signal clk : std_logic := '0';
+   signal nres : std_logic := '0';
 
-signal clk, nres : std_logic := (others => '0');
-signal Out0, Out1 :  std_logic;
-signal ist, folge : std_logic_vector (1 downto 0);
+ 	--Outputs
+   signal Out0 : std_logic;
+   signal Out1 : std_logic;
 
-Begin 
-  -- Instantiate the Unit Under Test (UUT)
-  uut: zaehler Port Map (
-      clk => clk, 
-      nres => nres, 
-      Out0 => Out0, 
-      Out1 => Out1,
-      ist => ist,
-      folge => folge
-      );
+   -- Clock period definitions
+   constant clk_period : time := 10 ns;
+ 
+BEGIN
+ 
+	-- Instantiate the Unit Under Test (UUT)
+   uut: sseg_zaehler PORT MAP (
+          clk => clk,
+          nres => nres,
+          Out0 => Out0,
+          Out1 => Out1
+        );
+
+   -- Clock process definitions
+   clk_process :process
+   begin
+		clk <= '0';
+		wait for clk_period/2;
+		clk <= '1';
+		wait for clk_period/2;
+   end process;
+ 
+
+   -- Stimulus process
+   stim_proc: process
+   begin		
       
-stim_proc: Process 
-  Begin
-  clk <= "0000"; wait for 200ns; 
-  nres <= "0000"; wait for 200ns; 
-  Out0 <= "0000"; wait for 200ns; 
-  Out1 <= "0000"; wait for 200ns; 
-  ist <= "0000"; wait for 200ns; 
-  folge <= "0000"; wait for 200ns; 
-  wait;
- End Process;
+		nres <= '0'; wait for 100ns; 
+      nres <= '1';
+		
+      wait;
+   end process;
 
-End;
+END;
