@@ -23,7 +23,7 @@ begin
 	when "0110" => sseg_out <= "1111101"; --6
 	when "0111" => sseg_out <= "0000111"; --7
 	when "1000" => sseg_out <= "1111111"; --8
-	when "1001" => sseg_out <= "1101111"; --9
+	when "1001" => sseg_out <= "1001111"; --9
 
 	when others => sseg_out <= "0000000";
 end case;
